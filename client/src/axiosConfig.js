@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Create axios instance
 const instance = axios.create({
-  baseURL: process.env.REACT_APP_BACKEND_URL || "http://localhost:5000",
+  baseURL: process.env.REACT_APP_BACKEND_URL,
 });
 
 // Attach token to every request dynamically
