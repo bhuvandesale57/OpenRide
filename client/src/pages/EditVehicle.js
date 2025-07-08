@@ -11,7 +11,7 @@ const EditVehicle = () => {
   useEffect(() => {
     const fetchVehicle = async () => {
       const token = localStorage.getItem("token");
-      const res = await axios.get(`http://localhost:5000/api/vehicle/${id}`, {
+      const res = await axios.get(`/api/vehicle/${id}`, {
         headers: { Authorization: token },
       });
       setForm(res.data);
@@ -25,7 +25,7 @@ const EditVehicle = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem("token");
-    await axios.put(`http://localhost:5000/api/vehicle/${id}`, form, {
+    await axios.put(`/api/vehicle/${id}`, form, {
       headers: { Authorization: token },
     });
     alert("Vehicle updated!");

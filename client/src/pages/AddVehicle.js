@@ -29,7 +29,7 @@ const AddVehicle = () => {
         perKmRate: form.perKmRate ? Number(form.perKmRate) : undefined,
         seats: form.seats ? Number(form.seats) : undefined,
       };
-      await axios.post("http://localhost:5000/api/vehicle", payload, {
+      await axios.post("/api/vehicle", payload, {
         headers: { Authorization: token },
       });
       alert("Vehicle added!");

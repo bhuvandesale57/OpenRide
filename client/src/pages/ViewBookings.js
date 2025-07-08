@@ -9,7 +9,7 @@ const ViewBookings = () => {
     const fetchBookings = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:5000/api/ride/my", {
+        const res = await axios.get("/api/ride/my", {
           headers: { Authorization: token },
         });
         setBookings(res.data);

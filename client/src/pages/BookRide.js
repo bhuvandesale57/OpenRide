@@ -16,7 +16,7 @@ const BookRide = () => {
   useEffect(() => {
     const fetchVehicles = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/vehicle");
+        const res = await axios.get("/api/vehicle");
         setVehicles(res.data);
       } catch (err) {
         console.error("Error fetching vehicles:", err);
@@ -59,7 +59,7 @@ const BookRide = () => {
         minute: "2-digit",
       });
 
-      const res = await axios.post("http://localhost:5000/api/ai/fare", {
+      const res = await axios.post("/api/ai/fare", {
         vehicleType,
         distanceKm: distKm,
         time,
@@ -96,7 +96,7 @@ const BookRide = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/ride",
+        "/api/ride",
         {
           vehicleId: selectedVehicle._id,
           pickup: `Lat:${pickup.lat}, Lng:${pickup.lng}`,
