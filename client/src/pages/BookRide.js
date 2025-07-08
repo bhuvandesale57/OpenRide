@@ -72,11 +72,13 @@ const BookRide = () => {
     }
   };
 
-  const handleVehicleSelect = (vehicle) => {
+  const handleVehicleSelect = async (vehicle) => {
     setSelectedVehicle(vehicle);
     if (pickup && drop && distance !== null) {
       const estFare = vehicle.baseFare + distance * vehicle.perKmRate;
       setFare(estFare.toFixed(2));
+
+      await getAIFare(vehicle.vehicleType, distance);
     }
   };
 
@@ -155,7 +157,7 @@ const BookRide = () => {
             <strong>Distance:</strong> {distance.toFixed(2)} km
           </div>
         )}
-        {suggestedFare && (
+        {suggestedFare && selectedVehicle && (
           <p className="ai-fare-suggestion">
             ✨ AI-Suggested Fare: <strong>₹{suggestedFare}</strong>
           </p>
