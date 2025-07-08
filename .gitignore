@@ -18,3 +18,16 @@ client/build/
 *.env
 *.log
 
+# Dependencies
+client/node_modules/
+server/node_modules/
+
+# Builds
+client/build/
+client/dist/
+
+# Logs and env
+*.log
+*.env
+
+
